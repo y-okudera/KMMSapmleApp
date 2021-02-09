@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Ricemill",
+        "repositoryURL": "https://github.com/y-okudera/Ricemill",
+        "state": {
+          "branch": "master",
+          "revision": "42ec5700200a22a72c48760da092e78f83a8cda4",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

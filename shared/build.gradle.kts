@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization") version "1.4.10"
     id("com.android.library")
 }
 
@@ -15,7 +16,20 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-core:1.4.1")
+                implementation("io.ktor:ktor-client-json:1.4.1")
+                implementation("io.ktor:ktor-client-serialization:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1-native-mt") {
+                    version {
+                        strictly("1.4.1-native-mt")
+                    }
+                }
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -25,6 +39,8 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.1")
+                implementation("io.ktor:ktor-client-android:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
             }
         }
         val androidTest by getting {
@@ -33,7 +49,11 @@ kotlin {
                 implementation("junit:junit:4.13")
             }
         }
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:1.4.1")
+            }
+        }
         val iosTest by getting
     }
 }

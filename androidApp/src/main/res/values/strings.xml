@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">
+        GitHub リポジトリ検索
+    </string>
+    <string name="placeholder">
+        ユーザー名で検索
+    </string>
+    <string name="search">
+        検索
+    </string>
+</resources>
